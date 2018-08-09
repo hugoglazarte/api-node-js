@@ -1,8 +1,13 @@
 "use strict";
-
 const router = require("express").Router();
+const logger = require("winston");
 
-const controller = require("./../controllers/users");
+// router.get("/", (req, res, next) => {
+//     logger.info("Get all Users");
+//     res.json({
+//       "message": "Get all Users"
+//     });
+//   });
 
 /*
  * /api/users/     GET    - READ ALL
@@ -11,6 +16,7 @@ const controller = require("./../controllers/users");
  * /api/users/:id  PUT    - UPDATE
  * /api/users/:id  DELETE - DELETE
  */
+const controller = require("./../controllers/users");
 
 router.route("/")
     .get(controller.all)

@@ -1,13 +1,6 @@
-"use strict";
-
 const router = require("express").Router();
+const usersRoutes = require("./routes/users"); // las rutas de users de la api
 
-const categoriesRoutes = require("./routes/categories");
-const postsRoutes = require("./routes/posts");
-const usersRoutes = require("./routes/users");
-
-router.use("/categories", categoriesRoutes);
-router.use("/posts", postsRoutes);
-router.use("/users", usersRoutes);
+router.use("/users", usersRoutes); // estableciendo punto de montaje
 
 module.exports = router;

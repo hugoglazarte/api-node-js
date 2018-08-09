@@ -5,4 +5,5 @@ const config = {
     port: 3000
 };
 
+// exportamos la configuracion del servidor
 module.exports = config;
