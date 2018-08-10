@@ -12,9 +12,16 @@ para esto existe un paquete que nos ayudará con esta parte
 nuestro proyecto:
 */
 const bodyParser = require('body-parser'); //
+const mongoose = require("mongoose");
+const bluebird = require('bluebird'); // libreria para utilizar promesas de js
 
+const config = require("./config")
 const api = require("./api/v1");
 
+// Use bluebird
+mongoose.Promise = bluebird;
+// Connect to database
+mongoose.connect(config.db.url);
 const app = express();
 // Setup middleware
 app.use(morgan("common"));

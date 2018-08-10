@@ -18,6 +18,9 @@ const logger = require("winston");
  */
 const controller = require("./../controllers/users");
 
+// si existe el parametro "id" en la ruta, usamos el controlador params.
+router.param("id", controller.params);
+
 router.route("/")
     .get(controller.all)
     .post(controller.post);
