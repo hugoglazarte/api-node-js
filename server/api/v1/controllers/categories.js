@@ -3,7 +3,7 @@
 const logger = require("winston");
 
 exports.all = (req, res, next) => {
-    res.json({});
+    res.json({message: "categproas"});
 };
 
 exports.post = (req, res, next) => {

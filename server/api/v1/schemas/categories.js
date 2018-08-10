@@ -3,23 +3,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const CategoriesSchema = new Schema({
     title: {
         type: String,
         required: true
     },
     description: {
         type: String
-    },
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: "user"
-    },
-    categories: [{
-        // de tipo array para almacenar varias categorias
-        type: Schema.Types.ObjectId,
-        ref: "category"
-    }]
+    }
 }, {
     timestamps: true
 });
@@ -34,4 +25,4 @@ const PostSchema = new Schema({
 
 */
 
-module.exports = mongoose.model("posts", PostSchema);
+module.exports = mongoose.model("category", CategoriesSchema);

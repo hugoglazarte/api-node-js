@@ -2,6 +2,8 @@
 
 const logger = require("winston");
 
+const Post = require("./../schemas/posts");
+
 exports.params = (req, res, next, id) => {
     Post.findById(id)
         .populate("author categories")
@@ -32,16 +34,28 @@ exports.all = (req, res, next) => {
     .populate("author categories")
     .exec()
     .then( posts => {
-        res.json(posts);
+      res.json(posts);
+      // res.json({message: "g"});
     })
     .catch( err => {
         next(new Error(err));
     });
-  };
 };
 
+
 exports.post = (req, res, next) => {
-    res.json({});
+  let body = req.body;
+
+  let newPost = new Post(body);
+
+  newPost.save()
+  .then( post => {
+      res.json(post);
+  })
+  .catch( err => {
+      next(new Error(err));
+  });
+
 };
 
 exports.get = (req, res, next) => {

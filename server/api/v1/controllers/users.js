@@ -10,6 +10,7 @@ const _ = require("lodash");
 // Una vez definido el Schema o clase users de la DB
 // procedemos a utilizarlo en nuestro controlador.
 const User = require("./../schemas/users");
+const Category = require("./../schemas/categories");
 
 exports.all = (req, res, next) => {
   // VERSION SIN PROMESAS
