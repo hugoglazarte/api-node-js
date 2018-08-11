@@ -4,6 +4,8 @@ const router = require("express").Router();
 
 const controller = require("./../controllers/posts");
 
+
+
 /*
  * /api/posts/     GET    - READ ALL
  * /api/posts/     POST   - CREATE
@@ -15,6 +17,9 @@ const controller = require("./../controllers/posts");
 router.route("/")
     .get(controller.all)
     .post(controller.post);
+
+// middleware para capturar id via url
+router.param("id", controller.params);
 
 router.route("/:id")
     .get(controller.get)

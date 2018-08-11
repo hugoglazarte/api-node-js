@@ -16,6 +16,9 @@ router.route("/")
     .get(controller.all)
     .post(controller.post);
 
+// middleware para capturar id via url
+router.param("id", controller.params);
+
 router.route("/:id")
     .get(controller.get)
     .put(controller.put)
